@@ -1,3 +1,3 @@
-module morrisey.us/4current/gohamlog
+module github.com/4current/gohamlog
 
 go 1.14
