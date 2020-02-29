@@ -1,8 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"go.bug.st/serial.v1"
+	"fmt"
+	)
 
-func main() {
-	fmt.Println("Hello, world.")
+fports, err := serial.GetPortsList()
+if err != nil {
+	log.Fatal(err)
 }
-
+if len(ports) == 0 {
+	log.Fatal("No serial ports found!")
+}
+for _, port := range ports {
+	fmt.Printf("Found port: %v\n", port)
+}
