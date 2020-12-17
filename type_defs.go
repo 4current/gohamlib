@@ -1,4 +1,4 @@
-package gohamlog
+package main
 
 import "fmt"
 

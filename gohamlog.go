@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/4current/gohamlog"
 	"go.bug.st/serial.v1"
 )
 
@@ -19,5 +18,5 @@ func main() {
 	for _, port := range ports {
 		fmt.Printf("Found port: %v\n", port)
 	}
-	gohamlog.TestModes()
+	TestModes()
 }
