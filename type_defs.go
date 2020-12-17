@@ -1,4 +1,4 @@
-package main
+package gohamlog
 
 import "fmt"
 
@@ -184,7 +184,7 @@ func (m Mode) String() string {
 	}[m]
 }
 
-func testModes() {
+func .TestModes() {
 	var m Mode = AM
 	fmt.Print(m.String())
 }
