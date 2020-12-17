@@ -1,9 +1,10 @@
 package main
 
 import (
-	"go.bug.st/serial.v1"
 	"fmt"
 	"log"
+
+	"go.bug.st/serial.v1"
 )
 
 func main() {
@@ -17,4 +18,5 @@ func main() {
 	for _, port := range ports {
 		fmt.Printf("Found port: %v\n", port)
 	}
+	testModes()
 }
