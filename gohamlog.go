@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/4current/gohamlog"
 	"go.bug.st/serial.v1"
 )
 
