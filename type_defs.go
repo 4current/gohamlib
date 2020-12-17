@@ -184,7 +184,7 @@ func (m Mode) String() string {
 	}[m]
 }
 
-func .TestModes() {
+func TestModes() {
 	var m Mode = AM
 	fmt.Print(m.String())
 }
