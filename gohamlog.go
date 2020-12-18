@@ -18,4 +18,9 @@ func main() {
 	for _, port := range ports {
 		fmt.Printf("Found port: %v\n", port)
 	}
+	mode := CW_MODE
+	for _, submode := range mode.Submodes() {
+		fmt.Println(submode.String())
+	}
+
 }

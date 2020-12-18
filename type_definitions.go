@@ -188,7 +188,8 @@ func (m *Mode) isImportOnly() bool {
 }
 
 const (
-	ASCI_SUBMODE Submode = iota
+	AMTORFEC_SUBMODE Submode = iota
+	ASCI_SUBMODE
 	CHIP64_SUBMODE
 	CHIP128_SUBMODE
 	DOMINOEX_SUBMODE
@@ -291,6 +292,7 @@ const (
 
 func (s *Submode) String() string {
 	return [...]string{
+		"AMTORFEC",
 		"ASCI",
 		"CHIP64",
 		"CHIP128",
@@ -391,4 +393,171 @@ func (s *Submode) String() string {
 		"THRBX",
 		"USB",
 	}[*s]
+}
+
+func (m *Mode) Submodes() []Submode {
+	s := []Submode{}
+	switch *m {
+	case CHIP_MODE:
+		s = []Submode{
+			CHIP64_SUBMODE,
+			CHIP128_SUBMODE,
+		}
+	case CW_MODE:
+		s = []Submode{
+			PCW_SUBMODE,
+		}
+	case DOMINO_MODE:
+		s = []Submode{
+			DOMINOF_SUBMODE,
+			DOMINOEX_SUBMODE,
+		}
+	case HELL_MODE:
+		s = []Submode{
+			FMHELL_SUBMODE,
+			FSKHELL_SUBMODE,
+			HELL80_SUBMODE,
+			HFSK_SUBMODE,
+			PSKHELL_SUBMODE,
+		}
+	case ISCAT_MODE:
+		s = []Submode{
+			ISCAT_A_SUBMODE,
+			ISCAT_B_SUBMODE,
+		}
+	case JT4_MODE:
+		s = []Submode{
+			JT4A_SUBMODE,
+			JT4B_SUBMODE,
+			JT4C_SUBMODE,
+			JT4D_SUBMODE,
+			JT4E_SUBMODE,
+			JT4F_SUBMODE,
+			JT4G_SUBMODE,
+		}
+	case JT9_MODE:
+		s = []Submode{
+			JT9_1_SUBMODE,
+			JT9_2_SUBMODE,
+			JT9_5_SUBMODE,
+			JT9_10_SUBMODE,
+			JT9_30_SUBMODE,
+			JT9A_SUBMODE,
+			JT9B_SUBMODE,
+			JT9C_SUBMODE,
+			JT9D_SUBMODE,
+			JT9E_SUBMODE,
+			JT9E_FAST_SUBMODE,
+			JT9F_SUBMODE,
+			JT9F_FAST_SUBMODE,
+			JT9G_SUBMODE,
+			JT9G_FAST_SUBMODE,
+			JT9H_SUBMODE,
+			JT9H_FAST_SUBMODE,
+		}
+	case JT65_MODE:
+		s = []Submode{
+			JT65A_SUBMODE,
+			JT65B_SUBMODE,
+			JT65B2_SUBMODE,
+			JT65C_SUBMODE,
+			JT65C2_SUBMODE,
+		}
+	case MFSK_MODE:
+		s = []Submode{
+			FSQCALL_SUBMODE,
+			FST4_SUBMODE,
+			FT4_SUBMODE,
+			JS8_SUBMODE,
+			MFSK4_SUBMODE,
+			MFSK8_SUBMODE,
+			MFSK11_SUBMODE,
+			MFSK16_SUBMODE,
+			MFSK22_SUBMODE,
+			MFSK31_SUBMODE,
+			MFSK32_SUBMODE,
+			MFSK64_SUBMODE,
+			MFSK128_SUBMODE,
+		}
+	case OLIVIA_MODE:
+		s = []Submode{
+			OLIVIA_4_125_SUBMODE,
+			OLIVIA_4_250_SUBMODE,
+			OLIVIA_8_250_SUBMODE,
+			OLIVIA_8_500_SUBMODE,
+			OLIVIA_16_500_SUBMODE,
+			OLIVIA_16_1000_SUBMODE,
+			OLIVIA_32_1000_SUBMODE,
+		}
+	case OPERA_MODE:
+		s = []Submode{
+			OPERA_BEACON_SUBMODE,
+			OPERA_QSO_SUBMODE,
+		}
+	case PAC_MODE:
+		s = []Submode{
+			PAC2_SUBMODE,
+			PAC3_SUBMODE,
+			PAC4_SUBMODE,
+		}
+	case PAX_MODE:
+		s = []Submode{
+			PAX2_SUBMODE,
+		}
+	case PSK_MODE:
+		s = []Submode{
+			FSK31_SUBMODE,
+			PSK10_SUBMODE,
+			PSK31_SUBMODE,
+			PSK63_SUBMODE,
+			PSK63F_SUBMODE,
+			PSK125_SUBMODE,
+			PSK250_SUBMODE,
+			PSK500_SUBMODE,
+			PSK1000_SUBMODE,
+			PSKAM10_SUBMODE,
+			PSKAM31_SUBMODE,
+			PSKAM50_SUBMODE,
+			PSKFEC31_SUBMODE,
+			QPSK31_SUBMODE,
+			QPSK63_SUBMODE,
+			QPSK125_SUBMODE,
+			QPSK250_SUBMODE,
+			QPSK500_SUBMODE,
+			SIM31_SUBMODE,
+		}
+	case QRA64_MODE:
+		s = []Submode{
+			QRA64A_SUBMODE,
+			QRA64B_SUBMODE,
+			QRA64C_SUBMODE,
+			QRA64D_SUBMODE,
+			QRA64E_SUBMODE,
+		}
+	case ROS_MODE:
+		s = []Submode{
+			ROS_EME_SUBMODE,
+			ROS_HF_SUBMODE,
+			ROS_MF_SUBMODE,
+		}
+	case RTTY_MODE:
+		s = []Submode{
+			ASCI_SUBMODE,
+		}
+	case SSB_MODE:
+		s = []Submode{
+			LSB_SUBMODE,
+			USB_SUBMODE,
+		}
+	case THRB_MODE:
+		s = []Submode{
+			THRBX_SUBMODE,
+		}
+	case TOR_MODE:
+		s = []Submode{
+			AMTORFEC_SUBMODE,
+			GTOR_SUBMODE,
+		}
+	}
+	return s
 }

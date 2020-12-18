@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestModes(t *testing.T) {
 	for m := AM_MODE; m <= THRBX_MODE; m++ {
@@ -37,4 +40,12 @@ func TestSubmodes(t *testing.T) {
 			t.Errorf("ERROR: Expected type string got %v", r)
 		}
 	}
+
+	for m := AMTORFEC_MODE; m <= THRBX_MODE; m++ {
+		submodes := m.Submodes()
+		for _, submode := range submodes {
+			fmt.Println(submode.String())
+		}
+	}
+
 }
