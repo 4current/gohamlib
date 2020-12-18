@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type Mode int
 
 const (
@@ -182,9 +180,4 @@ func (m Mode) String() string {
 		"QPSK125",
 		"THRBX",
 	}[m]
-}
-
-func TestModes() {
-	var m Mode = AM
-	fmt.Print(m.String())
 }

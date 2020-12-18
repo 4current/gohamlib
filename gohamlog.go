@@ -18,5 +18,4 @@ func main() {
 	for _, port := range ports {
 		fmt.Printf("Found port: %v\n", port)
 	}
-	TestModes()
 }
